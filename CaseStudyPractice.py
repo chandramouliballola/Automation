@@ -38,7 +38,7 @@ print('Processing for resolved INCs ends.')
 print('Generating Resolved.xlsx file')
 resolved.to_excel('Resolved.xlsx', index=0)
 print('Generating Resolved.xlsx file ends')
-print('End of Process')
+print('Start of Closed INC Process')
 closed = dataset.loc[dataset['incident_state'] == 'Closed']
 closed.reset_index(drop = True,inplace = True)
 #closed
@@ -85,5 +85,8 @@ closed_fixed = closed_fixed.sort_values(by=['opened_at_dt'])
 #closed_fixed = closed_fixed.sort_values(by=['opened_at_dt'])
 closed_fixed.reset_index(drop = True, inplace = True)
 #closed_fixed
+print('Closed INCs Process Ends')
+print('Generating Clean_Data File')
 closed_fixed.to_excel('Clean_Data.xlsx', index = False)
 closed_fixed.to_csv('Clean_Data.csv', index = False)
+print('Generating Clean_Data File Ends')
